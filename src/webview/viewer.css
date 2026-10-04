@@ -1,0 +1,91 @@
+:root {
+  color-scheme: dark;
+  --main-color: var(--vscode-editor-foreground, #e8e8e8);
+  --body-bg-color: var(--vscode-editor-background, #202124);
+  --toolbar-bg-color: var(--vscode-editorWidget-background, #292a2d);
+  --sidebar-toolbar-bg-color: var(--vscode-editorWidget-background, #292a2d);
+}
+
+:root:has(body.vscode-light, body.vscode-high-contrast-light) {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#viewerContainer {
+  background: var(--body-bg-color);
+}
+
+/* Invert the entire page composition, keeping text, annotations and canvas aligned. */
+:root[data-yozora-mode='dark'] .pdfViewer .page,
+:root[data-yozora-mode='dark'] .thumbnailImage {
+  filter: var(--yozora-page-filter, invert(0.95) hue-rotate(180deg));
+}
+
+#yozora-retry {
+  font: inherit;
+  font-size: 12px;
+  color: var(--vscode-button-secondaryForeground, #f1f1f1);
+  background: var(--vscode-button-secondaryBackground, #3b3d42);
+  border: 1px solid var(--vscode-contrastBorder, transparent);
+  border-radius: 4px;
+  padding: 5px 9px;
+  margin: 3px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+#yozora-retry:hover {
+  background: var(--vscode-button-secondaryHoverBackground, #505258);
+}
+
+#yozora-retry:focus-visible {
+  outline: 2px solid var(--vscode-focusBorder, #69a7ff);
+  outline-offset: 1px;
+}
+
+#yozora-status {
+  position: fixed;
+  z-index: 10000;
+  inset: 60px 20px auto;
+  width: fit-content;
+  max-width: min(640px, calc(100% - 64px));
+  margin-inline: auto;
+  padding: 12px 16px;
+  border: 1px solid var(--vscode-widget-border, #62666d);
+  border-radius: 6px;
+  background: var(--vscode-editorWidget-background, #292a2d);
+  color: var(--vscode-editor-foreground, #e8e8e8);
+  font: 13px/1.5 var(--vscode-font-family, system-ui);
+  overflow-wrap: anywhere;
+}
+
+#yozora-status[hidden] {
+  display: none;
+}
+
+/* This editor is read-only and remains bound to the file opened by VS Code. */
+#editorModeButtons,
+#editorModeSeparator,
+#printButton,
+#downloadButton,
+#secondaryOpenFile,
+#secondaryPrint,
+#secondaryDownload,
+#presentationMode,
+#viewBookmark,
+#viewBookmarkSeparator,
+#attachmentsViewMenu {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}

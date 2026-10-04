@@ -1,0 +1,33 @@
+node_modules/
+dist/
+out/
+*.vsix
+.vscode-test/
+playwright-report/
+test-results/
+*.tsbuildinfo
+vendor/
+.cache/
+
+# Local credentials and tool configuration
+.env
+.env.*
+!.env.example
+!.env.*.example
+/.aws/
+/.codex/
+/.agents/
+/.claude/
+mise.local.toml
+mise.*.local.toml
+.mise.local.toml
+.mise.*.local.toml
+*.log
+*.code-workspace
+
+# Share only the project's editor configuration
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json

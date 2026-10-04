@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 1,
+  "verifiedOn": "2026-10-03",
+  "papers": [
+    {
+      "id": "equality-saturation",
+      "file": "equality-saturation.pdf",
+      "title": "Equality Saturation: A New Approach to Optimization",
+      "authors": "Ross Tate, Michael Stepp, Zachary Tatlock and Sorin Lerner",
+      "citation": "Logical Methods in Computer Science 7(1:10), 2011. Expanded version of POPL 2009, including appendices.",
+      "doi": "10.2168/LMCS-7(1:10)2011",
+      "source": "https://lmcs.episciences.org/1016",
+      "download": "https://lmcs.episciences.org/1016/pdf",
+      "version": "LMCS journal PDF, 80 pages including appendices",
+      "license": "CC-BY-ND-2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nd/2.0/",
+      "licenseEvidence": "Explicit license notice on PDF page 80; author copyright on page 1.",
+      "changes": "None; original PDF bytes retained.",
+      "sha256": "5bb3630c9a2a4766c5614b19148e865ee0797c693607b2cdd700b27c38df0b94",
+      "bytes": 1639330,
+      "pages": 80,
+      "searchTerm": "saturation",
+      "samples": [
+        {
+          "page": 5,
+          "text": "Program Expression Graphs",
+          "features": ["monospaced code", "program graphs", "fine arrows"],
+          "neutralRegion": [0.25, 0.13, 0.48, 0.14]
+        },
+        {
+          "page": 29,
+          "text": "ML-style pseudo-code",
+          "features": ["long code listing", "line numbers", "mixed code and math"],
+          "neutralRegion": [0.15, 0.15, 0.7, 0.23]
+        },
+        {
+          "page": 33,
+          "text": "Trans-While",
+          "features": ["stacked inference rules", "long fraction bars", "nested subscripts"]
+        },
+        {
+          "page": 49,
+          "text": "Loop Fusion",
+          "features": ["dense program graphs", "overlapping arrows", "tiny node labels"]
+        },
+        {
+          "page": 66,
+          "text": "Optimizations",
+          "features": ["boxed table", "mixed fonts", "mathematical symbols"]
+        },
+        {
+          "page": 68,
+          "text": "Runtimes of generated code",
+          "features": ["grayscale bar chart", "small axis labels", "thin tick marks"]
+        },
+        {
+          "page": 75,
+          "text": "Inlining axiom",
+          "features": ["appendix axioms", "nested mathematical expressions", "bulleted formulas"]
+        }
+      ]
+    },
+    {
+      "id": "logical-step-indexed-logical-relations",
+      "file": "logical-step-indexed-logical-relations.pdf",
+      "title": "Logical Step-Indexed Logical Relations",
+      "authors": "Derek Dreyer, Amal Ahmed and Lars Birkedal",
+      "citation": "Logical Methods in Computer Science 7(2:16), 2011. Expanded version of LICS 2009.",
+      "doi": "10.2168/LMCS-7(2:16)2011",
+      "source": "https://lmcs.episciences.org/698",
+      "download": "https://lmcs.episciences.org/698/pdf",
+      "version": "LMCS journal PDF, 37 pages",
+      "license": "CC-BY-ND-2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nd/2.0/",
+      "licenseEvidence": "Explicit license notice on PDF page 37; author copyright on page 1.",
+      "changes": "None; original PDF bytes retained.",
+      "sha256": "e70e9770e23d4be4dbafb058a280c75a49b7612b1c46e3d462325ebe2287ed24",
+      "bytes": 388281,
+      "pages": 37,
+      "searchTerm": "logical",
+      "samples": [
+        {
+          "page": 4,
+          "text": "Eval. Contexts",
+          "features": ["language grammar", "monospaced keywords", "Greek symbols"]
+        },
+        {
+          "page": 8,
+          "text": "Core Inference Rules",
+          "features": ["inference rules", "modal operators", "small subscripts"],
+          "neutralRegion": [0.19, 0.14, 0.66, 0.22]
+        },
+        {
+          "page": 12,
+          "text": "Syntactic Logical Relation",
+          "features": [
+            "dense mathematical definitions",
+            "nested superscripts and subscripts",
+            "semantic brackets"
+          ],
+          "neutralRegion": [0.18, 0.14, 0.7, 0.22]
+        },
+        {
+          "page": 23,
+          "text": "Flag Objects",
+          "features": ["typed code examples", "lambda expressions", "inline mathematics"]
+        },
+        {
+          "page": 35,
+          "text": "Syntax and Static Semantics I",
+          "features": ["full-page inference rules", "small premises", "long rule bars"]
+        },
+        {
+          "page": 36,
+          "text": "Remaining Inference Rules",
+          "features": ["appendix derivations", "five-point mathematical glyphs", "boxed judgments"]
+        }
+      ]
+    },
+    {
+      "id": "aperiodic-monotile",
+      "file": "aperiodic-monotile.pdf",
+      "title": "An aperiodic monotile",
+      "authors": "David Smith, Joseph Samuel Myers, Craig S. Kaplan and Chaim Goodman-Strauss",
+      "citation": "Combinatorial Theory 4(1), article 6, 2024; first preprint 2023.",
+      "doi": "10.5070/C64163843",
+      "source": "https://arxiv.org/abs/2303.10798v3",
+      "download": "https://arxiv.org/pdf/2303.10798v3",
+      "version": "Copyedited journal version on arXiv, v3, 2024-07-03, 91 pages",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "licenseEvidence": "Page 1 explicitly states CC BY International 4.0. This grant, not arXiv's non-exclusive distribution license, permits redistribution. Authors identify the arXiv text as identical to the journal article at https://cs.uwaterloo.ca/~csk/hat/.",
+      "changes": "None; original PDF bytes retained, including arXiv version stamp.",
+      "sha256": "ee1505e15db590730bd424c4954837bab7488e5312a88c6ececd50dd2cf81f29",
+      "bytes": 4627569,
+      "pages": 91,
+      "searchTerm": "polykite",
+      "samples": [
+        {
+          "page": 10,
+          "text": "391 hats",
+          "features": ["vector tilings", "thin boundaries", "pale fills"],
+          "neutralRegion": [0.12, 0.112, 0.76, 0.06]
+        },
+        {
+          "page": 15,
+          "text": "The first four iterations",
+          "features": ["overlapping vector polygons", "multicolored fills", "nested tilings"]
+        },
+        {
+          "page": 20,
+          "text": "An excerpt from a very large patch",
+          "features": ["dense vector tiling", "fine repeated edges", "adjacent dark and pale fills"]
+        },
+        {
+          "page": 25,
+          "text": "Corresponding translations",
+          "features": ["raster and vector artwork", "colored arrows", "small geometric diagrams"]
+        },
+        {
+          "page": 33,
+          "text": "Between-cluster matching checks",
+          "features": ["gray diagram fills", "small mathematical labels", "sparse page layout"]
+        },
+        {
+          "page": 43,
+          "text": "alongside corresponding",
+          "features": ["thin saturated lines", "colored arrowheads", "overlaid mathematical labels"]
+        },
+        {
+          "page": 77,
+          "text": "eliminated by trying",
+          "features": ["appendix diagram grid", "pale yellow highlights", "fine polygon outlines"]
+        }
+      ]
+    },
+    {
+      "id": "m87",
+      "file": "m87.pdf",
+      "title": "First M87 Event Horizon Telescope Results. I. The Shadow of the Supermassive Black Hole",
+      "authors": "The Event Horizon Telescope Collaboration (full author list preserved in the PDF)",
+      "citation": "The Astrophysical Journal Letters 875:L1, 2019, 17 pages.",
+      "doi": "10.3847/2041-8213/ab0ec7",
+      "source": "https://authors.library.caltech.edu/records/gq7fw-fd611",
+      "download": "https://authors.library.caltech.edu/records/gq7fw-fd611/files/The_Event_Horizon_Telescope_Collaboration_2019_ApJL_875_L1.pdf",
+      "version": "Published version of record deposited at Caltech, without a repository cover sheet",
+      "license": "CC-BY-3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "licenseEvidence": "Page 1 and the Caltech record state CC BY 3.0 and copyright 2019 The American Astronomical Society.",
+      "changes": "None; original PDF bytes retained.",
+      "sha256": "be6604770bb0d0a6c2a81071518e89d5bc2f9b460f91390518804e0a1f454472",
+      "bytes": 2578342,
+      "pages": 17,
+      "searchTerm": "visibility",
+      "samples": [
+        {
+          "page": 3,
+          "text": "Eight stations",
+          "features": ["photographs over a map", "dashed geographic arcs", "two-column text"]
+        },
+        {
+          "page": 4,
+          "text": "Images and Features",
+          "features": ["error bars", "dashed curves", "small plot labels"],
+          "neutralRegion": [0.52, 0.065, 0.41, 0.075]
+        },
+        {
+          "page": 5,
+          "text": "Theoretical Modeling",
+          "features": ["dark-field image", "continuous color scale", "white scale bars"]
+        },
+        {
+          "page": 6,
+          "text": "dimensionless spin",
+          "features": ["publisher math fonts", "displayed equations", "superscripts and footnotes"]
+        },
+        {
+          "page": 8,
+          "text": "Crescent contrast",
+          "features": [
+            "compact scientific table",
+            "units and uncertainty notation",
+            "small table notes"
+          ]
+        },
+        {
+          "page": 15,
+          "text": "David J. James",
+          "features": ["multilingual author names", "tiny affiliation superscripts", "ORCID glyphs"]
+        }
+      ]
+    },
+    {
+      "id": "drosophila-connectome",
+      "file": "drosophila-connectome.pdf",
+      "title": "A connectome and analysis of the adult Drosophila central brain",
+      "authors": "Louis K. Scheffer, C. Shan Xu, Michal Januszewski et al. (full author list preserved in the PDF)",
+      "citation": "eLife 9:e57443, 2020, 83 pages.",
+      "doi": "10.7554/eLife.57443",
+      "source": "https://elifesciences.org/articles/57443",
+      "download": "https://cdn.elifesciences.org/articles/57443/elife-57443-v4.pdf",
+      "version": "Publisher PDF v4, 83 pages, including appendices; PDF creation date 2020-10-16",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "licenseEvidence": "Page 1 prints the attribution grant and links to CC BY 4.0; copyright Scheffer et al.",
+      "changes": "None; original PDF bytes retained.",
+      "sha256": "bb2ec43b9f5471769967790b7f803e91effb2331e381a4906fc4dad85bc47ced",
+      "bytes": 10143607,
+      "pages": 83,
+      "searchTerm": "hemibrain",
+      "samples": [
+        {
+          "page": 5,
+          "text": "Brain regions contained",
+          "features": ["dense table", "thin rules", "sans-serif text"],
+          "neutralRegion": [0.06, 0.16, 0.88, 0.2]
+        },
+        {
+          "page": 11,
+          "text": "CycleGAN processing",
+          "features": ["grayscale microscopy", "colored segmentation"]
+        },
+        {
+          "page": 16,
+          "text": "Reconstructed brain regions",
+          "features": ["neuron reconstructions", "mixed backgrounds", "small labels"]
+        },
+        {
+          "page": 41,
+          "text": "Compartment statistics",
+          "features": ["colored table cells", "small numeric entries", "pale table rules"]
+        },
+        {
+          "page": 47,
+          "text": "Delay versus amplitude",
+          "features": ["gray plot panels", "small markers", "fine grids"]
+        },
+        {
+          "page": 55,
+          "text": "Author ORCIDs",
+          "features": ["repeated raster icons", "colored hyperlinks", "dense author list"]
+        },
+        {
+          "page": 70,
+          "text": "Agglomeration constraints",
+          "features": ["mathematical table", "small subscripts", "mixed sans-serif and math fonts"],
+          "neutralRegion": [0.32, 0.19, 0.55, 0.09]
+        },
+        {
+          "page": 75,
+          "text": "Logistics and management",
+          "features": ["dense scatter plot", "continuous color scale", "fine grid lines"]
+        }
+      ]
+    }
+  ]
+}

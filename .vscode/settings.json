@@ -1,0 +1,13 @@
+{
+  "js/ts.experimental.useTsgo": true,
+  "js/ts.tsdk.path": "./node_modules/typescript",
+  "[typescript][javascript][json][jsonc][css][markdown][toml]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescript][javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.oxc": "explicit"
+    }
+  }
+}

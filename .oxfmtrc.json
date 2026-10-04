@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": true,
+  "semi": true,
+  "trailingComma": "all",
+  "endOfLine": "lf",
+  "sortImports": false,
+  "sortPackageJson": false,
+  "ignorePatterns": [
+    "node_modules/",
+    "vendor/",
+    "dist/",
+    "out/",
+    ".cache/",
+    ".vscode-test/",
+    "test-results/",
+    "playwright-report/",
+    "package-lock.json",
+    "*.vsix",
+    "test/corpus/*.pdf"
+  ]
+}

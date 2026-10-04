@@ -1,0 +1,186 @@
+{
+  "name": "yozora",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "npm@12.2.0",
+  "description": "Bringing dark mode to PDFs in VS Code.",
+  "engines": {
+    "node": ">=24 <25",
+    "vscode": "^1.140.0"
+  },
+  "overrides": {
+    "@vscode/test-cli": {
+      "mocha": "$mocha"
+    }
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/mocha": "10.0.10",
+    "@types/node": "24.19.1",
+    "@types/vscode": "1.140.0",
+    "@vscode/test-cli": "0.0.15",
+    "@vscode/test-electron": "3.1.0",
+    "@vscode/vsce": "4.0.0",
+    "esbuild": "0.28.2",
+    "fflate": "0.8.3",
+    "mocha": "12.0.3",
+    "oxfmt": "0.71.0",
+    "oxlint": "1.86.0",
+    "oxlint-tsgolint": "7.0.2003",
+    "typescript": "7.0.2"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "@vscode/vsce-sign@2.1.0": true
+  },
+  "displayName": "Yozora — PDF Dark Mode",
+  "publisher": "local",
+  "license": "MIT",
+  "main": "./dist/extension.cjs",
+  "categories": [
+    "Visualization"
+  ],
+  "keywords": [
+    "pdf",
+    "dark mode",
+    "research",
+    "reader"
+  ],
+  "activationEvents": [],
+  "capabilities": {
+    "virtualWorkspaces": true,
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
+  "scripts": {
+    "vendor:pdfjs": "node scripts/vendor-pdfjs.mjs",
+    "build": "node scripts/build.mjs",
+    "watch": "node scripts/build.mjs --watch",
+    "lint": "oxlint --max-warnings=0 --report-unused-disable-directives",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
+    "check": "npm run format:check && npm run lint && npm test",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.host.json && tsc -p tsconfig.webview.json",
+    "test": "npm run typecheck && npm run test:corpus && npm run build && npm run test:unit",
+    "test:corpus": "node scripts/verify-corpus.mjs",
+    "test:papers": "node scripts/test-papers.mjs",
+    "test:papers:visual": "node scripts/test-papers.mjs --visual",
+    "test:papers:baseline": "node scripts/test-papers.mjs --baseline",
+    "test:unit": "mocha \"dist/test/unit/**/*.test.cjs\"",
+    "pretest:integration": "npm run build",
+    "test:integration": "node scripts/test-extension.mjs",
+    "vscode:prepublish": "npm run build",
+    "package": "vsce package --no-dependencies --allow-missing-repository --no-rewrite-relative-links"
+  },
+  "contributes": {
+    "customEditors": [
+      {
+        "viewType": "yozora.pdf",
+        "displayName": "Yozora PDF Viewer",
+        "selector": [
+          {
+            "filenamePattern": "*.pdf"
+          },
+          {
+            "filenamePattern": "*.PDF"
+          }
+        ],
+        "priority": "option"
+      }
+    ],
+    "commands": [
+      {
+        "command": "yozora.open",
+        "title": "Open PDF",
+        "category": "Yozora"
+      },
+      {
+        "command": "yozora.toggleDarkMode",
+        "title": "Toggle PDF Dark Mode",
+        "category": "Yozora",
+        "icon": "$(color-mode)"
+      },
+      {
+        "command": "yozora.chooseTheme",
+        "title": "Choose PDF Theme",
+        "category": "Yozora",
+        "icon": "$(symbol-color)"
+      },
+      {
+        "command": "yozora.reload",
+        "title": "Reload PDF Viewer",
+        "category": "Yozora",
+        "icon": "$(refresh)"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "yozora.open",
+          "when": "resourceExtname =~ /\\.pdf$/i",
+          "group": "navigation"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "yozora.toggleDarkMode",
+          "when": "activeCustomEditorId == yozora.pdf",
+          "group": "navigation@1"
+        },
+        {
+          "command": "yozora.chooseTheme",
+          "when": "activeCustomEditorId == yozora.pdf",
+          "group": "navigation@2"
+        },
+        {
+          "command": "yozora.reload",
+          "when": "activeCustomEditorId == yozora.pdf",
+          "group": "navigation@3"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Yozora",
+      "properties": {
+        "yozora.defaultTheme": {
+          "type": "string",
+          "enum": [
+            "graphite",
+            "midnight"
+          ],
+          "enumItemLabels": [
+            "Graphite — Balanced",
+            "Midnight — High contrast"
+          ],
+          "enumDescriptions": [
+            "Light gray text on charcoal.",
+            "Bright text against a moonless sky."
+          ],
+          "default": "midnight",
+          "description": "Set the default theme.",
+          "scope": "resource"
+        },
+        "yozora.defaultMode": {
+          "type": "string",
+          "enum": [
+            "dark",
+            "original"
+          ],
+          "default": "dark",
+          "description": "Set the default display mode.",
+          "scope": "resource"
+        },
+        "yozora.maxFileSizeMiB": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 512,
+          "default": 100,
+          "description": "Set the maximum PDF size Yozora can open, in MiB.",
+          "scope": "resource"
+        }
+      }
+    }
+  }
+}

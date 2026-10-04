@@ -1,0 +1,13 @@
+**
+!package.json
+!README.md
+!CHANGELOG.md
+!LICENSE
+!pdfjs.lock.json
+!dist/extension.cjs
+!dist/extension.cjs.map
+!dist/webview/bridge.js
+!dist/webview/bridge.js.map
+!dist/webview/viewer.css
+!dist/webview/viewer.css.map
+!vendor/pdfjs/**
