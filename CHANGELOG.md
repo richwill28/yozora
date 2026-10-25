@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+- Improve Dracula's text contrast so thin strokes look less washed out, while retaining its background and foreground colors.
+
 ## 0.2.0
 
 - Add Dracula using the Dracula for VS Code background and foreground colors.

@@ -1,6 +1,20 @@
-// Map inverted black/white to Dracula's VS Code background/foreground in sRGB.
+// Strengthen partially covered text pixels before inversion: simply inverting
+// antialiased black-on-white text leaves thin strokes faint on dark backgrounds.
+// Keep the black/white endpoints fixed so Dracula's palette remains unchanged.
 // https://github.com/dracula/visual-studio-code/blob/master/src/dracula.yml
-const draculaTransfer = `<svg xmlns="http://www.w3.org/2000/svg"><filter id="dracula" color-interpolation-filters="sRGB"><feComponentTransfer>
+const draculaTransfer = `<svg xmlns="http://www.w3.org/2000/svg"><filter id="dracula" color-interpolation-filters="sRGB">
+<feComponentTransfer>
+  <feFuncR type="gamma" amplitude="1" exponent="1.5" offset="0"/>
+  <feFuncG type="gamma" amplitude="1" exponent="1.5" offset="0"/>
+  <feFuncB type="gamma" amplitude="1" exponent="1.5" offset="0"/>
+</feComponentTransfer>
+<feComponentTransfer>
+  <feFuncR type="table" tableValues="1 0"/>
+  <feFuncG type="table" tableValues="1 0"/>
+  <feFuncB type="table" tableValues="1 0"/>
+</feComponentTransfer>
+<feColorMatrix type="hueRotate" values="180"/>
+<feComponentTransfer>
   <feFuncR type="table" tableValues="${40 / 255} ${248 / 255}"/>
   <feFuncG type="table" tableValues="${42 / 255} ${248 / 255}"/>
   <feFuncB type="table" tableValues="${54 / 255} ${242 / 255}"/>
@@ -25,7 +39,7 @@ export const darkThemes = {
     label: 'Dracula',
     description: 'VS Code palette',
     detail: 'Off-white text on a blue-gray background, using Dracula’s VS Code colors.',
-    filter: `invert(1) hue-rotate(180deg) url("data:image/svg+xml,${encodeURIComponent(draculaTransfer)}#dracula")`,
+    filter: `url("data:image/svg+xml,${encodeURIComponent(draculaTransfer)}#dracula")`,
   },
 } as const;
 
