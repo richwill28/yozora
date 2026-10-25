@@ -59,11 +59,13 @@ suite('PDF editor in the real VS Code webview', () => {
         (statuses) => statuses[0]?.mode === expectedMode,
       );
 
-      await vscode.commands.executeCommand('yozora.chooseTheme', 'midnight');
-      await waitForViewerStatus(
-        () => api.getViewerStatus(uri),
-        (statuses) => statuses[0]?.theme === 'midnight' && statuses[0]?.mode === 'dark',
-      );
+      for (const theme of ['midnight', 'dracula']) {
+        await vscode.commands.executeCommand('yozora.chooseTheme', theme);
+        await waitForViewerStatus(
+          () => api.getViewerStatus(uri),
+          (statuses) => statuses[0]?.theme === theme && statuses[0]?.mode === 'dark',
+        );
+      }
 
       await vscode.commands.executeCommand('yozora.toggleDarkMode');
       await waitForViewerStatus(
@@ -74,13 +76,13 @@ suite('PDF editor in the real VS Code webview', () => {
       await vscode.commands.executeCommand('yozora.toggleDarkMode');
       await waitForViewerStatus(
         () => api.getViewerStatus(uri),
-        (statuses) => statuses[0]?.mode === 'dark' && statuses[0]?.theme === 'midnight',
+        (statuses) => statuses[0]?.mode === 'dark' && statuses[0]?.theme === 'dracula',
       );
 
       await vscode.commands.executeCommand('yozora.reload');
       await waitForViewerStatus(
         () => api.getViewerStatus(uri),
-        (statuses) => statuses[0]?.phase === 'ready' && statuses[0]?.theme === 'midnight',
+        (statuses) => statuses[0]?.phase === 'ready' && statuses[0]?.theme === 'dracula',
       );
     });
   }

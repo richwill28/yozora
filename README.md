@@ -36,8 +36,11 @@ To use Yozora by default:
 | ---------------------- | --------------------------------------------------- |
 | **Midnight** (default) | Bright text against a moonless sky.                 |
 | **Graphite**           | Light gray text on charcoal, with gentler contrast. |
+| **Dracula**            | Off-white text on Dracula’s blue-gray background.   |
 
 Use the theme button in the editor title bar, or run **Yozora: Choose PDF Theme**, to change themes.
+
+Dracula uses the [Dracula for VS Code palette](https://github.com/dracula/visual-studio-code/blob/master/src/dracula.yml): `#282A36` for the page background and `#F8F8F2` for text. Set `yozora.defaultTheme` to `dracula` to use it by default. All dark themes transform the entire PDF page, including figures; toggle dark mode off to view original colors.
 
 ### Settings
 

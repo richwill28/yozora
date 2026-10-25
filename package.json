@@ -1,6 +1,6 @@
 {
   "name": "yozora",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "packageManager": "npm@12.2.0",
   "description": "Bringing dark mode to PDFs in VS Code.",
@@ -148,15 +148,18 @@
           "type": "string",
           "enum": [
             "graphite",
-            "midnight"
+            "midnight",
+            "dracula"
           ],
           "enumItemLabels": [
             "Graphite — Balanced",
-            "Midnight — High contrast"
+            "Midnight — High contrast",
+            "Dracula — VS Code palette"
           ],
           "enumDescriptions": [
             "Light gray text on charcoal.",
-            "Bright text against a moonless sky."
+            "Bright text against a moonless sky.",
+            "Off-white text on a blue-gray background, using Dracula’s VS Code colors."
           ],
           "default": "midnight",
           "description": "Set the default theme.",

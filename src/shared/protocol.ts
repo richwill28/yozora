@@ -1,6 +1,12 @@
 import { defaultDarkTheme, isDarkTheme, type DarkTheme } from './appearance';
 
 export type ColorMode = 'dark' | 'original';
+// PDF.js SidebarView values: closed, thumbnails, outline, attachments, layers.
+export type SidebarView = 0 | 1 | 2 | 3 | 4;
+
+export function isSidebarView(value: unknown): value is SidebarView {
+  return typeof value === 'number' && Number.isInteger(value) && value >= 0 && value <= 4;
+}
 
 export interface ReadingState {
   version: 1;
@@ -13,6 +19,7 @@ export interface ReadingState {
   left: number;
   top: number;
   positioned: boolean;
+  sidebarView: SidebarView;
 }
 
 export interface ViewerStatus {
@@ -144,6 +151,7 @@ export function restoreState(
     left: 0,
     top: 0,
     positioned: false,
+    sidebarView: 0,
   };
 
   if (!isRecord(value) || value.version !== 1 || value.documentId !== documentId) {
@@ -161,5 +169,6 @@ export function restoreState(
     left: typeof value.left === 'number' && Number.isFinite(value.left) ? value.left : 0,
     top: typeof value.top === 'number' && Number.isFinite(value.top) ? value.top : 0,
     positioned: value.positioned === true,
+    sidebarView: isSidebarView(value.sidebarView) ? value.sidebarView : 0,
   };
 }

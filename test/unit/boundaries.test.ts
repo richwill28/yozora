@@ -61,6 +61,7 @@ describe('document and webview boundaries', () => {
       left: 12,
       top: 45,
       positioned: true,
+      sidebarView: 2,
     };
     assert.deepEqual(restoreState(saved, saved.documentId, 'dark'), saved);
     assert.equal(restoreState(saved, 'file:///other.pdf', 'dark').page, 1);
@@ -83,6 +84,7 @@ describe('document and webview boundaries', () => {
     assert.equal(restored.mode, 'original');
     assert.equal(restored.page, 12);
     assert.equal(restored.zoom, '0.67');
+    assert.equal(restored.sidebarView, 0);
     assert.equal(
       restoreState({ ...old, theme: 'graphite' }, 'paper', 'dark', 'midnight').theme,
       'graphite',
@@ -130,6 +132,20 @@ describe('document and webview boundaries', () => {
         }),
         false,
       );
+    }
+  });
+
+  it('restores sidebar choices only for the same document and defaults invalid values to closed', () => {
+    const saved = { version: 1, documentId: 'paper' };
+    for (const sidebarView of [0, 1, 2, 3, 4]) {
+      assert.equal(
+        restoreState({ ...saved, sidebarView }, 'paper', 'dark').sidebarView,
+        sidebarView,
+      );
+      assert.equal(restoreState({ ...saved, sidebarView }, 'other', 'dark').sidebarView, 0);
+    }
+    for (const sidebarView of [undefined, null, -1, 5, 1.5, '2', true, {}]) {
+      assert.equal(restoreState({ ...saved, sidebarView }, 'paper', 'dark').sidebarView, 0);
     }
   });
 

@@ -1,5 +1,6 @@
 import {
   isRecord,
+  isSidebarView,
   isSafeExternalUrl,
   restoreState,
   type HostMessage,
@@ -173,6 +174,11 @@ async function openPendingDocument(): Promise<void> {
       reportStatus();
 
       await application.close();
+      // Hidden tabs are recreated by VS Code. Restore the reader's choice on
+      // both webview initialization and in-place PDF reloads; new readers use NONE.
+      (window as unknown as PdfViewerWindow).PDFViewerApplicationOptions.setAll({
+        sidebarViewOnLoad: state.sidebarView,
+      });
       const zoom = Number.isFinite(Number(state.zoom))
         ? String(Number(state.zoom) * 100)
         : state.zoom;
@@ -260,6 +266,16 @@ function configureViewer(): void {
 }
 
 function observeViewer(viewer: PdfViewerApplication): void {
+  viewer.eventBus.on('sidebarviewchanged', (event) => {
+    // Closing/reopening a document resets the PDF.js sidebar. Those intermediate
+    // events must not overwrite the saved choice before restoration finishes.
+    if (isRestoringPosition || !isSidebarView(event.view)) {
+      return;
+    }
+    state = { ...state, sidebarView: event.view };
+    vscode.setState(state);
+  });
+
   viewer.eventBus.on('pagerender', (event) => {
     // PDF.js emits this synchronously before its render-task promise initializes the context.
     // An alpha-enabled canvas uses grayscale antialiasing, avoiding colored LCD fringes

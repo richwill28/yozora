@@ -20,6 +20,7 @@ export interface PdfViewerApplication {
 }
 
 export interface ViewerEvent {
+  view?: number;
   source?: { canvas?: HTMLCanvasElement };
   pageNumber?: number;
   error?: unknown;
